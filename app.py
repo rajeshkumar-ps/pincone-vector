@@ -73,7 +73,7 @@ if index_name in existing:
         if idx_dim != EMBED_DIM:
             print(f"Dimension mismatch: index={idx_dim} vs embeddings={EMBED_DIM}")
             # choose to create a new index (safe)
-            index_name = f"{requested_index_name}-v{EMB_ED_DIM}" if False else f"{requested_index_name}-v2"
+            index_name = f"{requested_index_name}-v{EMBED_DIM}" if False else f"{requested_index_name}-v2"
             create_new = True
     else:
         # if we couldn't read dimension reliably, still create new index to be safe
@@ -137,5 +137,5 @@ docsearch = PineconeVectorStore.from_documents(
 )
 
 print("Vector store ready. Sample search:")
-results = docsearch.similarity_search("was bihari rejected from reality shows ?", top_k=2)
+results = docsearch.similarity_search("was bihari rejected from reality shows ?", k=2)
 print(results)
