@@ -205,7 +205,7 @@ vectorstore = PineconeVectorStore.from_documents(
 )
 
 # Query
-results = vectorstore.similarity_search("what is this article about?", top_k=3)
+results = vectorstore.similarity_search("what is this article about?", k=3)
 print(results)
 ```
 
